@@ -51,5 +51,5 @@ Welcome to the Computer Manufacturing Website project! This website is designed 
 - Embedded map for location (Google Maps API).
 
 # Wireframes
-![Home Page Wireframe](ragzad/1-Homepage.png)
+![Home Page Wireframe](1-Homepage.png)
 
