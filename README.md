@@ -50,3 +50,6 @@ Welcome to the Computer Manufacturing Website project! This website is designed 
 - Business phone number, email, and address.
 - Embedded map for location (Google Maps API).
 
+# Wireframes
+![Home Page Wireframe](ragzad/1-Homepage.png)
+
