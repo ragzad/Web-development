@@ -51,5 +51,14 @@ Welcome to the Computer Manufacturing Website project! This website is designed 
 - Embedded map for location (Google Maps API).
 
 # Wireframes
+## Homepage
 ![Home Page Wireframe](1-Homepage.png)
 
+## Product Page
+![Product page Wireframe](2-Product-page.png)
+
+## Contact and Info page
+![Contact and info page Wireframe](3-Contact-and-Info-Page.png)
+
+## Build a PC form
+![Build a PC form Wireframe](4-Build-a-PC-form.png)
