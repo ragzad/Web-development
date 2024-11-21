@@ -114,3 +114,64 @@ main {
     color: #007bff;
     text-decoration: none;
 }
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.section {
+    padding: 20px;
+    text-align: center;
+}
+
+/* Hot Deals and Product List Styling */
+.deals-container, .products-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.deal-box, .product-box {
+    flex: 1 1 calc(30% - 20px); /* Adjusts to fit 3 per row */
+    max-width: 30%;
+    min-width: 200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.deal-box img, .product-box img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.deal-box h3, .product-box h3 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+/* Product Grid */
+.products-container {
+/*Placeholder for scrollable feature when Database implemented and more than 6 desktops present*/    
+} 
+
+.product-box {
+    display: inline-block; /* Inline layout for grid */
+}
+
+/* Filter Bar Styling */
+.filter-bar {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.filter-bar select {
+    margin: 0 10px;
+    padding: 5px;
+}
