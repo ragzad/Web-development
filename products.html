@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desktop Manufacturing Business - Products and Services</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header with logo -->
+    <header>
+        <div class="logo">Desktop Manufacturing Business</div>
+    </header>
+
+    <!-- Navigation bar -->
+    <nav>
+        <ul class="nav-links">
+            <li><a href="DesktopManufac.html">Home</a></li>
+            <li><a href="products.html">Products and Services</a></li>
+            <li><a href="contact.html">Contact and About Us</a></li>
+        </ul>
+    </nav>
+
+    <!-- Banner bar with Build a PC -->
+    <div class="banner-bar">
+        <a href="build-a-pc.html">Build a PC</a>
+    </div>
+
+    <!-- Content area -->
+    <main>
+        <!-- Hot Deals Section -->
+        <section class="section" id="hot-deals">
+            <h2>Hot Deals</h2>
+            <p>Prices so good even your wife will agree!</p>
+            <div class="deals-container">
+                <div class="deal-box">
+                    <img src="images/deal-one.jpg" alt="Performance Beast">
+                    <h3>Performance Beast</h3>
+                    <p><strike>$2000</strike> $1800</p> <!--Strike to simulate "Discount"-->
+                </div>
+                <div class="deal-box">
+                    <img src="images/deal-two.jpg" alt="Gaming Starter">
+                    <h3>Gaming Starter</h3>
+                    <p><strike>$900</strike> $850</p>
+                </div>
+                <div class="deal-box">
+                    <img src="images/deal-three.jpg" alt="Office Pro">
+                    <h3>Office Pro</h3>
+                    <p><strike>$1000</strike> $950</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filterable Product List -->
+        <section class="section" id="product-list">
+            <h2>All Products</h2>
+            <div class="filter-bar">
+                <label for="category">Category:</label>
+                <select id="category">
+                    <option value="all">All</option>
+                    <option value="gaming">Gaming</option>
+                    <option value="workstation">Workstation</option>
+                    <option value="budget">Budget</option>
+                </select>
+
+                <label for="price-range">Price Range:</label>
+                <select id="price-range">
+                    <option value="all">All</option>
+                    <option value="0-500">Under $500</option>
+                    <option value="500-1000">$500 - $1000</option>
+                    <option value="1000+">Above $1000</option>
+                </select>
+            </div>
+
+            <div class="products-container">
+                <div class="product-box" data-category="gaming" data-price="1200">
+                    <img src="images/product-one.jpg" alt="Gaming Beast">
+                    <h3>Gaming Beast</h3>
+                    <p>$1200</p>
+                </div>
+                <div class="product-box" data-category="workstation" data-price="1500">
+                    <img src="images/product-two.jpg" alt="Workstation Supreme">
+                    <h3>Workstation Supreme</h3>
+                    <p>$1500</p>
+                </div>
+                <div class="product-box" data-category="budget" data-price="400">
+                    <img src="images/product-three.jpg" alt="Budget PC">
+                    <h3>Budget PC</h3>
+                    <p>$400</p>
+                </div>
+                <div class="product-box" data-category="gaming" data-price="950">
+                    <img src="images/product-four.jpg" alt="Gaming Starter Plus">
+                    <h3>Gaming Starter Plus</h3>
+                    <p>$950</p>
+                </div>
+                <div class="product-box" data-category="workstation" data-price="1800">
+                    <img src="images/product-five.jpg" alt="Workstation Elite">
+                    <h3>Workstation Elite</h3>
+                    <p>$1800</p>
+                </div>
+                <div class="product-box" data-category="budget" data-price="600">
+                    <img src="images/product-six.jpg" alt="Budget Gamer">
+                    <h3>Budget Gamer</h3>
+                    <p>$600</p>
+                </div>
+                <!-- Add more products as needed, Alternatively will create a seperate database that can push this information via an API -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <p>Contact us at <a href="mailto:support@desktopmanufacturing.com">support@desktopmanufacturing.com</a></p>
+        <p>Visit us at 16 Tech road, Silicon City, USA</p>
+        <p><a href="DesktopManufac.html">Home</a> | <a href="products.html">Products</a> | <a href="contact.html">Contact</a></p>
+    </footer>
+
+<!-- JavaScript for Filtering -->
+<script>
+// When the user changes a selection, the filterProducts function is called.
+document.getElementById('category').addEventListener('change', filterProducts);
+document.getElementById('price-range').addEventListener('change', filterProducts);
+
+/**
+ * This function filters the products based on the selected category and price range.
+ */
+function filterProducts() {
+    // I grab the selected values from the dropdowns
+    const category = document.getElementById('category').value;
+    const priceRange = document.getElementById('price-range').value;
+
+    // I select all product boxes that I need to filter
+    const products = document.querySelectorAll('.product-box');
+
+    // I go through each product and check if it matches the selected filters
+    products.forEach(product => {
+        const productCategory = product.dataset.category;  // Get the category of the current product
+        const productPrice = parseInt(product.dataset.price, 10);  // Get the price of the product
+
+        let show = true;  // I assume the product should be shown
+
+        // Check if the product's category matches the selected category
+        if (category !== 'all' && category !== productCategory) {
+            show = false; // If not, hide the product
+        }
+
+        // See if the product's price falls within the selected price range
+        if (priceRange !== 'all') {
+            const [min, max] = priceRange.split('-').map(Number);  // Get the min and max price from the selected range
+            if (productPrice < (min || 0) || productPrice > (max || Infinity)) {
+                show = false;  // If not in the range, hide the product
+            }
+        }
+
+        // Finally, I display or hide the product based on whether it matches the filters
+        product.style.display = show ? 'block' : 'none';
+    });
+}
+    </script>
+</body>
+</html>
