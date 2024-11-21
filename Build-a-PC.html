@@ -27,6 +27,15 @@
         <a href="build-a-pc.html">Build a PC</a>
     </div>
 
+    <!-- Image preview for selected component -->
+    <div id="image-preview">
+        <img src="" alt="Component Preview" id="component-image" style="max-width: 300px; display: none;">
+    </div>
+
+    <!-- Compatibility warning -->
+        <p id="compatibility-warning" style="color: red; display: none;">Warning: Selected components might not be compatible!</p>
+
+
     <!-- Content area -->
     <main>
         <section class="section" id="build-pc">
@@ -36,6 +45,7 @@
             <!-- Dropdown Menu for Case Selection -->
             <label for="case">Select a Case:</label>
             <select id="case">
+                <option value="No Selection" data-price="0">No Selection - $0</option>
                 <option value="case1" data-price="100">Case 1 - $100</option>
                 <option value="case2" data-price="120">Case 2 - $120</option>
                 <option value="case3" data-price="150">Case 3 - $150</option>
@@ -44,6 +54,7 @@
             <!-- Dropdown Menu for GPU Selection -->
             <label for="gpu">Select a GPU:</label>
             <select id="gpu">
+                <option value="No Selection" data-price="0">No Selection - $0</option>
                 <option value="gpu1" data-price="300">GPU 1 - $300</option>
                 <option value="gpu2" data-price="400">GPU 2 - $400</option>
                 <option value="gpu3" data-price="500">GPU 3 - $500</option>
@@ -52,6 +63,7 @@
             <!-- Dropdown Menu for PSU Selection -->
             <label for="psu">Select a PSU:</label>
             <select id="psu">
+                <option value="No Selection" data-price="0">No Selection - $0</option>
                 <option value="psu1" data-price="80">PSU 1 - $80</option>
                 <option value="psu2" data-price="100">PSU 2 - $100</option>
                 <option value="psu3" data-price="120">PSU 3 - $120</option>
@@ -60,6 +72,7 @@
             <!-- Dropdown Menu for RAM Selection -->
             <label for="ram">Select RAM:</label>
             <select id="ram">
+                <option value="No Selection" data-price="0">No Selection - $0</option>
                 <option value="ram1" data-price="60">RAM 1 - $60</option>
                 <option value="ram2" data-price="80">RAM 2 - $80</option>
                 <option value="ram3" data-price="100">RAM 3 - $100</option>
@@ -126,6 +139,7 @@
 
         // Initialize the total price to 0
         updateTotalPrice();
+        
     </script>
 </body>
 </html>

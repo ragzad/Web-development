@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desktop Manufacturing Business - Contact</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header with logo -->
+    <header>
+        <div class="logo">Desktop Manufacturing Business</div>
+    </header>
+
+    <!-- Navigation bar -->
+    <nav>
+        <ul class="nav-links">
+            <li><a href="DesktopManufac.html">Home</a></li>
+            <li><a href="products.html">Products and Services</a></li>
+            <li><a href="contact.html">Contact and About Us</a></li>
+        </ul>
+    </nav>
+
+    <!-- Banner bar with Build a PC -->
+    <div class="banner-bar">
+        <a href="build-a-pc.html">Build a PC</a>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Company Synopsis -->
+        <section class="section" id="company-synopsis">
+            <h2>About Us</h2>
+            <p>We specialise in crafting high-performance desktops tailored for gaming, work, and everyday productivity. Our team is committed to providing top-quality, affordable machines with exceptional customer service. Get in touch with us for inquiries, support, or custom builds!</p>
+        </section>
+
+        <!-- Contact Information -->
+        <section class="section" id="contact-info">
+            <h2>Contact Information</h2>
+            <p>If you have any questions or would like more information, feel free to reach out to us:</p>
+            <ul>
+                <li><strong>Email:</strong> <a href="mailto:support@desktopmanufacturing.com">support@desktopmanufacturing.com</a></li>
+                <li><strong>Phone:</strong> +1 (800) 123-4567</li>
+                <li><strong>Address:</strong> 16 Tech Road, Silicon City, USA</li>
+            </ul>
+        </section>
+        <!-- Contact form -->
+        <form id="contact-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+            
+            <label for="message">Message:</label>
+            <textarea id="message" required></textarea>
+            
+            <button type="submit">Send</button>
+        </form>
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+        
+            if (name && email && message) {
+                alert('Message sent successfully!');
+                this.reset();
+            } else {
+                alert('Please fill out all fields.');
+            }
+        });
+    </script>
+        
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <p>Contact us at <a href="mailto:support@desktopmanufacturing.com">support@desktopmanufacturing.com</a></p>
+        <p>Visit us at 16 Tech Road, Silicon City, USA</p>
+        <p><a href="DesktopManufac.html">Home</a> | <a href="products.html">Products</a> | <a href="contact.html">Contact</a></p>
+    </footer>
+</body>
+</html>
