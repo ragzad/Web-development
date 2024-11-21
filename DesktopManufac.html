@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desktop Manufacturing Business - Home</title>
+    <style>
+        /* Basic styling for structure */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            text-align: center; /* Centralises all text and inline elements by default */
+        }
+
+        header {
+            text-align: center; /* Ensures logo is centrally aligned */
+            background-color: #f4f4f4;
+            padding: 20px 10px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav {
+            background-color: #333;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        nav .nav-links {
+            display: flex;
+            justify-content: center; /* Horizontally centers navigation links */
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        nav .nav-links li {
+            margin: 0 15px;
+        }
+
+        nav .nav-links li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: block;
+        }
+
+        nav .nav-links li a:hover {
+            background-color: #555;
+            border-radius: 5px;
+        }
+
+        .banner-bar {
+            background-color: #eaeaea;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .banner-bar a {
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        .banner-bar a:hover {
+            background-color: #0056b3;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section h2 {
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        /* Styles for the prebuilt machines section */
+        .machines-container {
+            display: flex;
+            justify-content: center; /* Horizontally aligns the boxes */
+            gap: 20px; /* Adds spacing between boxes */
+            flex-wrap: wrap; /* Allows wrapping to the next line on smaller screens */
+        }
+
+        .machine-box {
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 15px;
+            width: 250px; /* Sets a fixed width for each box */
+            text-align: center;
+        }
+
+        .machine-box img {
+            width: 100%; /* Ensures images match the box width */
+            height: auto; /* Maintains image aspect ratio */
+            border-radius: 8px; /* Adds rounded corners to the image */
+        }
+
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .footer a {
+            color: #007bff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with logo -->
+    <header>
+        <div class="logo">Desktop Manufacturing Business</div>
+    </header>
+
+    <!-- Navigation bar -->
+    <nav>
+        <ul class="nav-links">
+            <li><a href="DesktopManufac.html">Home</a></li>
+            <li><a href="products.html">Products and Services</a></li>
+            <li><a href="contact.html">Contact and About Us</a></li>
+        </ul>
+    </nav>
+
+    <!-- Banner bar with Build a PC -->
+    <div class="banner-bar">
+        <a href="build-a-pc.html">Build a PC</a>
+    </div>
+
+    <!-- Content area -->
+    <main>
+        <!-- Prebuilt Machines Section -->
+        <section class="section" id="prebuilt-machines">
+            <h2>Prebuilt Machines</h2>
+            <p>Explore our range of high-performance desktops tailored to your needs.</p>
+            <!-- Container for prebuilt machines -->
+            <div class="machines-container">
+                <!-- Box for each prebuilt machine -->
+                <div class="machine-box">
+                    <img src="images/one.jpg" alt="Gaming Rig Pro"> <!-- Images are currently placeholders for application later-->
+                    <h3>Gaming Rig Pro</h3>
+                    <p>$1200</p>
+                </div>
+                <div class="machine-box">
+                    <img src="images/two.jpg" alt="Workstation Ultra">
+                    <h3>Workstation Ultra</h3>
+                    <p>$1500</p>
+                </div>
+                <div class="machine-box">
+                    <img src="images/three.jpg" alt="Budget Desktop">
+                    <h3>Budget Desktop</h3>
+                    <p>$800</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Intro Section -->
+        <section class="section" id="company-intro">
+            <h2>About Our Company</h2>
+            <p>We specialise in manufacturing high-quality desktops for all uses, from gaming to productivity.</p>
+            <blockquote>
+                <em>"Wow so good, so powerful, so affordable!!" - A Happy Customer</em>
+            </blockquote>
+            <blockquote>
+                <em>"The level of service brought a tear to my eye" - Tech Enthusiast</em>
+            </blockquote>
+        </section>
+
+        <!-- Product List Section -->
+        <section class="section" id="product-list">
+            <h2>Product List</h2>
+            <p>Check out our full range of products <a href="products.html">here</a>.</p>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <p>Contact us at <a href="mailto:support@desktopmanufacturing.com">support@desktopmanufacturing.com</a></p>
+        <p>Visit us at 16 Tech road, Silicon City, USA</p>
+        <p><a href="DesktopManufac.html">Home</a> | <a href="products.html">Products</a> | <a href="contact.html">Contact</a></p>
+    </footer>
+</body>
+</html>
