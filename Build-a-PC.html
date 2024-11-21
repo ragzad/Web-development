@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build a PC - Desktop Manufacturing Business</title>
+    <!-- Link to the external CSS file -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header with logo -->
+    <header>
+        <div class="logo">Desktop Manufacturing Business</div>
+    </header>
+
+    <!-- Navigation bar -->
+    <nav>
+        <ul class="nav-links">
+            <li><a href="DesktopManufac.html">Home</a></li>
+            <li><a href="products.html">Products and Services</a></li>
+            <li><a href="contact.html">Contact and About Us</a></li>
+        </ul>
+    </nav>
+
+    <!-- Banner bar with Build a PC -->
+    <div class="banner-bar">
+        <a href="build-a-pc.html">Build a PC</a>
+    </div>
+
+    <!-- Content area -->
+    <main>
+        <section class="section" id="build-pc">
+            <h2>Build Your Custom PC</h2>
+            <p>Select your components from the options below to build your perfect desktop.</p>
+            
+            <!-- Dropdown Menu for Case Selection -->
+            <label for="case">Select a Case:</label>
+            <select id="case">
+                <option value="case1" data-price="100">Case 1 - $100</option>
+                <option value="case2" data-price="120">Case 2 - $120</option>
+                <option value="case3" data-price="150">Case 3 - $150</option>
+            </select><br><br>
+
+            <!-- Dropdown Menu for GPU Selection -->
+            <label for="gpu">Select a GPU:</label>
+            <select id="gpu">
+                <option value="gpu1" data-price="300">GPU 1 - $300</option>
+                <option value="gpu2" data-price="400">GPU 2 - $400</option>
+                <option value="gpu3" data-price="500">GPU 3 - $500</option>
+            </select><br><br>
+
+            <!-- Dropdown Menu for PSU Selection -->
+            <label for="psu">Select a PSU:</label>
+            <select id="psu">
+                <option value="psu1" data-price="80">PSU 1 - $80</option>
+                <option value="psu2" data-price="100">PSU 2 - $100</option>
+                <option value="psu3" data-price="120">PSU 3 - $120</option>
+            </select><br><br>
+
+            <!-- Dropdown Menu for RAM Selection -->
+            <label for="ram">Select RAM:</label>
+            <select id="ram">
+                <option value="ram1" data-price="60">RAM 1 - $60</option>
+                <option value="ram2" data-price="80">RAM 2 - $80</option>
+                <option value="ram3" data-price="100">RAM 3 - $100</option>
+            </select><br><br>
+
+            <!-- Total Price Display -->
+            <h3>Total Price: $<span id="total-price">0</span></h3><br>
+
+            <!-- Buttons for adding to cart and clearing selections -->
+            <button id="add-to-cart">Add to Cart</button>
+            <button id="clear-selections">Clear Selections</button>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <p>Contact us at <a href="mailto:support@desktopmanufacturing.com">support@desktopmanufacturing.com</a></p>
+        <p>Visit us at 16 Tech Road, Silicon City, USA</p>
+        <p><a href="DesktopManufac.html">Home</a> | <a href="products.html">Products</a> | <a href="contact.html">Contact</a></p>
+    </footer>
+
+    <!-- JavaScript for functionality -->
+    <script>
+        // Function to update the total price when a selection is made
+        function updateTotalPrice() {
+            let totalPrice = 0;
+
+            // Add up the prices of the selected components
+            const selectedCase = document.getElementById('case').selectedOptions[0].dataset.price;
+            const selectedGpu = document.getElementById('gpu').selectedOptions[0].dataset.price;
+            const selectedPsu = document.getElementById('psu').selectedOptions[0].dataset.price;
+            const selectedRam = document.getElementById('ram').selectedOptions[0].dataset.price;
+
+            // Calculate the total price
+            totalPrice = parseInt(selectedCase) + parseInt(selectedGpu) + parseInt(selectedPsu) + parseInt(selectedRam);
+            
+            // Update the total price on the page
+            document.getElementById('total-price').textContent = totalPrice;
+        }
+
+        // Event listeners to update price when a selection is made
+        document.getElementById('case').addEventListener('change', updateTotalPrice);
+        document.getElementById('gpu').addEventListener('change', updateTotalPrice);
+        document.getElementById('psu').addEventListener('change', updateTotalPrice);
+        document.getElementById('ram').addEventListener('change', updateTotalPrice);
+
+        // Add to Cart button functionality (just logs the selected components for now)
+        document.getElementById('add-to-cart').addEventListener('click', function() {
+            const selectedCase = document.getElementById('case').value;
+            const selectedGpu = document.getElementById('gpu').value;
+            const selectedPsu = document.getElementById('psu').value;
+            const selectedRam = document.getElementById('ram').value;
+            alert(`Added to cart:\nCase: ${selectedCase}\nGPU: ${selectedGpu}\nPSU: ${selectedPsu}\nRAM: ${selectedRam}`);
+        });
+
+        // Clear Selections button functionality
+        document.getElementById('clear-selections').addEventListener('click', function() {
+            document.getElementById('case').selectedIndex = 0;
+            document.getElementById('gpu').selectedIndex = 0;
+            document.getElementById('psu').selectedIndex = 0;
+            document.getElementById('ram').selectedIndex = 0;
+            updateTotalPrice(); // Reset total price to 0
+        });
+
+        // Initialize the total price to 0
+        updateTotalPrice();
+    </script>
+</body>
+</html>
