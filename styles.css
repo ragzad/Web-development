@@ -1,4 +1,4 @@
-/* Basic styling for structure */
+/* Basic structure styling for body */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -7,21 +7,26 @@ body {
     text-align: center;
 }
 
+/* Header Styling */
 header {
     text-align: center;
     background-color: #f4f4f4;
     padding: 20px 10px;
+    height: 100px; /* Fixed height for header */
 }
 
+/* Logo Styling */
 .logo {
     font-size: 24px;
     font-weight: bold;
 }
 
+/* Navigation Bar Styling */
 nav {
     background-color: #333;
     color: #fff;
     overflow: hidden;
+    height: 50px; /* Fixed height for navigation bar */
 }
 
 nav .nav-links {
@@ -41,6 +46,7 @@ nav .nav-links li a {
     text-decoration: none;
     padding: 10px 20px;
     display: block;
+    line-height: 50px; /* Vertically center the links */
 }
 
 nav .nav-links li a:hover {
@@ -48,10 +54,12 @@ nav .nav-links li a:hover {
     border-radius: 5px;
 }
 
+/* Banner Bar Styling */
 .banner-bar {
     background-color: #eaeaea;
     text-align: center;
-    padding: 10px;
+    padding: 15px 10px;
+    height: 60px; /* Fixed height for banner bar */
 }
 
 .banner-bar a {
@@ -66,12 +74,16 @@ nav .nav-links li a:hover {
     background-color: #0056b3;
 }
 
+/* Main Content Styling */
 main {
     padding: 20px;
 }
 
+/* Section Styling */
 .section {
     margin-bottom: 30px;
+    padding: 20px;
+    text-align: center;
 }
 
 .section h2 {
@@ -80,7 +92,7 @@ main {
     margin-bottom: 15px;
 }
 
-/* Styles for the prebuilt machines section */
+/* Prebuilt Machines Section */
 .machines-container {
     display: flex;
     justify-content: center;
@@ -103,6 +115,7 @@ main {
     border-radius: 8px;
 }
 
+/* Footer Styling */
 .footer {
     background-color: #333;
     color: #fff;
@@ -114,19 +127,8 @@ main {
     color: #007bff;
     text-decoration: none;
 }
-/* General Styling */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
 
-.section {
-    padding: 20px;
-    text-align: center;
-}
-
-/* Hot Deals and Product List Styling */
+/* General Styling for Deal and Product Sections */
 .deals-container, .products-container {
     display: flex;
     flex-wrap: wrap;
@@ -134,6 +136,7 @@ body {
     gap: 20px;
 }
 
+/* Styling for Deal and Product Boxes */
 .deal-box, .product-box {
     flex: 1 1 calc(30% - 20px); /* Adjusts to fit 3 per row */
     max-width: 30%;
@@ -156,13 +159,9 @@ body {
     margin: 10px 0;
 }
 
-/* Product Grid */
+/* Product Grid Placeholder */
 .products-container {
-/*Placeholder for scrollable feature when Database implemented and more than 6 desktops present*/    
-} 
-
-.product-box {
-    display: inline-block; /* Inline layout for grid */
+    /* Placeholder for scrollable feature when database is implemented and more than 6 desktops are present */
 }
 
 /* Filter Bar Styling */
@@ -174,4 +173,38 @@ body {
 .filter-bar select {
     margin: 0 10px;
     padding: 5px;
+}
+
+/* Ensuring consistent layout for the contact form */
+form {
+    text-align: left;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+form label {
+    font-weight: bold;
+    display: block;
+    margin: 10px 0 5px;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #0056b3;
 }
