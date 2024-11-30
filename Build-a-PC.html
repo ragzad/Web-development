@@ -175,6 +175,41 @@
             }
         }
 
+        // Add to Cart button functionality
+document.getElementById('add-to-cart').addEventListener('click', function () {
+    // Get the selected options from each dropdown
+    const selectedCase = document.getElementById('case').selectedOptions[0];
+    const selectedGpu = document.getElementById('gpu').selectedOptions[0];
+    const selectedPsu = document.getElementById('psu').selectedOptions[0];
+    const selectedRam = document.getElementById('ram').selectedOptions[0];
+
+    // Get the names and prices from the selected options
+    const caseName = selectedCase.textContent;
+    const casePrice = selectedCase.dataset.price;
+    
+    const gpuName = selectedGpu.textContent;
+    const gpuPrice = selectedGpu.dataset.price;
+
+    const psuName = selectedPsu.textContent;
+    const psuPrice = selectedPsu.dataset.price;
+
+    const ramName = selectedRam.textContent;
+    const ramPrice = selectedRam.dataset.price;
+
+    // Prepare the cart message (Placeholder for cart function)
+    const cartMessage = `
+        Added to cart:
+        Case: ${caseName}
+        GPU: ${gpuName}
+        PSU: ${psuName}
+        RAM: ${ramName}
+    `;
+
+    // Alert the user
+    alert(cartMessage);
+});
+
+
         // Event listeners to update price and preview on change
         ['case', 'gpu', 'psu', 'ram'].forEach(id => {
             document.getElementById(id).addEventListener('change', updateTotalPriceAndPreview);
@@ -192,6 +227,8 @@
 
         // Update the preview and total price
         updateTotalPriceAndPreview();
+
+        
 });
 
         
