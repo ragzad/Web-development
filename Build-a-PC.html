@@ -32,7 +32,7 @@
         <img src="" alt="Component Preview" id="component-image" style="max-width: 300px; display: none;">
     </div>
 
-    <!-- Compatibility warning -->
+    <!-- Compatibility warning (Placeholder) -->
         <p id="compatibility-warning" style="color: red; display: none;">Warning: Selected components might not be compatible!</p>
 
 
@@ -84,6 +84,23 @@
             <!-- Buttons for adding to cart and clearing selections -->
             <button id="add-to-cart">Add to Cart</button>
             <button id="clear-selections">Clear Selections</button>
+
+            <div id="component-preview">
+                <h3>Selected Components:</h3>
+                <ul>
+                    <li id="preview-case">Case: Not Selected</li>
+                    <li id="preview-gpu">GPU: Not Selected</li>
+                    <li id="preview-psu">PSU: Not Selected</li>
+                    <li id="preview-ram">RAM: Not Selected</li>
+                </ul>
+                <div id="component-images">
+                    <img id="image-case" src="" alt="Case Preview" hidden>
+                    <img id="image-gpu" src="" alt="GPU Preview" hidden>
+                    <img id="image-psu" src="" alt="PSU Preview" hidden>
+                    <img id="image-ram" src="" alt="RAM Preview" hidden>
+                </div>
+            </div>
+            
         </section>
     </main>
 
@@ -97,48 +114,86 @@
     <!-- JavaScript for functionality -->
     <script>
         // Function to update the total price when a selection is made
-        function updateTotalPrice() {
+        // Sample data for component descriptions and images
+        const componentData = {
+            case1: { name: "Case 1", description: "Compact ATX case", image: "Images/Contentpreview/case1.jpg" },
+            case2: { name: "Case 2", description: "Mid-tower case", image: "Images/Contentpreview/case2.jpg" },
+            case3: { name: "Case 3", description: "Full-tower case", image: "Images/Contentpreview/case3.jpg" },
+            gpu1: { name: "GPU 1", description: "Entry-level graphics card", image: "Images/Contentpreview/gpu1.jpg" },
+            gpu2: { name: "GPU 2", description: "Mid-range graphics card", image: "Images/Contentpreview/gpu2.jpg" },
+            gpu3: { name: "GPU 3", description: "High-end graphics card", image: "Images/Contentpreview/gpu3.jpg" },
+            psu1: { name: "PSU 1", description: "450W power supply", image: "Images/Contentpreview/psu1.jpg" },
+            psu2: { name: "PSU 2", description: "600W power supply", image: "Images/Contentpreview/psu2.jpg" },
+            psu3: { name: "PSU 3", description: "750W power supply", image: "Images/Contentpreview/psu3.jpg" },
+            ram1: { name: "RAM 1", description: "8GB DDR4", image: "Images/Contentpreview/ram1.jpg" },
+            ram2: { name: "RAM 2", description: "16GB DDR4", image: "Images/Contentpreview/ram2.jpg" },
+            ram3: { name: "RAM 3", description: "32GB DDR4", image: "Images/Contentpreview/ram3.jpg" }
+    };
+
+        // Function to update the total price and preview
+        function updateTotalPriceAndPreview() {
             let totalPrice = 0;
 
-            // Add up the prices of the selected components
-            const selectedCase = document.getElementById('case').selectedOptions[0].dataset.price;
-            const selectedGpu = document.getElementById('gpu').selectedOptions[0].dataset.price;
-            const selectedPsu = document.getElementById('psu').selectedOptions[0].dataset.price;
-            const selectedRam = document.getElementById('ram').selectedOptions[0].dataset.price;
-
-            // Calculate the total price
-            totalPrice = parseInt(selectedCase) + parseInt(selectedGpu) + parseInt(selectedPsu) + parseInt(selectedRam);
-            
-            // Update the total price on the page
-            document.getElementById('total-price').textContent = totalPrice;
-        }
-
-        // Event listeners to update price when a selection is made
-        document.getElementById('case').addEventListener('change', updateTotalPrice);
-        document.getElementById('gpu').addEventListener('change', updateTotalPrice);
-        document.getElementById('psu').addEventListener('change', updateTotalPrice);
-        document.getElementById('ram').addEventListener('change', updateTotalPrice);
-
-        // Add to Cart button functionality (just logs the selected components for now)
-        document.getElementById('add-to-cart').addEventListener('click', function() {
+            // Get selected components
             const selectedCase = document.getElementById('case').value;
             const selectedGpu = document.getElementById('gpu').value;
             const selectedPsu = document.getElementById('psu').value;
             const selectedRam = document.getElementById('ram').value;
-            alert(`Added to cart:\nCase: ${selectedCase}\nGPU: ${selectedGpu}\nPSU: ${selectedPsu}\nRAM: ${selectedRam}`);
+
+            // Update preview and images
+            updatePreview('case', selectedCase);
+            updatePreview('gpu', selectedGpu);
+            updatePreview('psu', selectedPsu);
+            updatePreview('ram', selectedRam);
+
+            // Calculate total price
+            totalPrice = [
+                parseInt(document.getElementById('case').selectedOptions[0].dataset.price),
+                parseInt(document.getElementById('gpu').selectedOptions[0].dataset.price),
+                parseInt(document.getElementById('psu').selectedOptions[0].dataset.price),
+                parseInt(document.getElementById('ram').selectedOptions[0].dataset.price)
+            ].reduce((sum, price) => sum + price, 0);
+
+            // Update the total price
+            document.getElementById('total-price').textContent = totalPrice;
+        }
+
+        // Update the preview details
+        function updatePreview(type, value) {
+            const previewElement = document.getElementById(`preview-${type}`);
+            const imageElement = document.getElementById(`image-${type}`);
+
+            // Get data for the selected component
+            const data = componentData[value];
+            if (data) {
+                previewElement.textContent = `${data.name}: ${data.description}`;
+                imageElement.src = data.image;
+                imageElement.hidden = false;
+            } else {
+                previewElement.textContent = `${type.charAt(0).toUpperCase() + type.slice(1)}: Not Selected`;
+                imageElement.hidden = true;
+            }
+        }
+
+        // Event listeners to update price and preview on change
+        ['case', 'gpu', 'psu', 'ram'].forEach(id => {
+            document.getElementById(id).addEventListener('change', updateTotalPriceAndPreview);
         });
 
-        // Clear Selections button functionality
-        document.getElementById('clear-selections').addEventListener('click', function() {
-            document.getElementById('case').selectedIndex = 0;
-            document.getElementById('gpu').selectedIndex = 0;
-            document.getElementById('psu').selectedIndex = 0;
-            document.getElementById('ram').selectedIndex = 0;
-            updateTotalPrice(); // Reset total price to 0
-        });
+        // Initialize the page
+        updateTotalPriceAndPreview();
 
-        // Initialize the total price to 0
-        updateTotalPrice();
+            document.getElementById('clear-selections').addEventListener('click', function () {
+        // Reset all dropdowns to the first option
+        document.getElementById('case').selectedIndex = 0;
+        document.getElementById('gpu').selectedIndex = 0;
+        document.getElementById('psu').selectedIndex = 0;
+        document.getElementById('ram').selectedIndex = 0;
+
+        // Update the preview and total price
+        updateTotalPriceAndPreview();
+});
+
         
     </script>
 </body>
