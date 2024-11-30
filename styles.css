@@ -238,6 +238,24 @@ form button:hover {
     background-color: #00cc66;
     color: #fff;
 }
+/* Added component Preview styles */
+#component-preview {
+    margin: 20px auto;
+    text-align: center;
+}
+
+#component-preview ul {
+    list-style: none;
+    padding: 0;
+}
+
+#component-images img {
+    max-width: 150px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
 
 /* Responsive design */
 @media (max-width: 768px) {
